@@ -1,10 +1,14 @@
 from weather import Weather
 
-w = Weather("20061", "") # ... is your APIXU key
-forecast = w.getForcecast(3)
-current = w.getCurrent()
+KEY = "..."
+LOCATION = "Washington, US"
+w = Weather(LOCATION, KEY)
+# ... is your APIXU key
+
+forecast = w.getforecast(3)
+current = w.getcurrent()
 
 for i in forecast:
-    print("Conditions for {0}: ".format(i) + forecast[i].condition_text)
+    print("Conditions for {0}: ".format(i) + str(forecast[i].Day.avgtemp_f))
 
-print("Current time: ", current.localtime)
+print("Current location: ", current.Location.location_name)
